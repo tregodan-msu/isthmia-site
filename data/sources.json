@@ -1,0 +1,16 @@
+{
+ "gregory": {
+  "records": 5184,
+  "with_area": 1444,
+  "with_trench": 323,
+  "with_person": 24,
+  "with_date": 27
+ },
+ "clement": {
+  "records": 631,
+  "with_area": 630,
+  "with_trench": 581,
+  "with_person": 591,
+  "with_date": 559
+ }
+}

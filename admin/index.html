@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Overview — Isthmia Archives</title>
+<link rel="stylesheet" href="../css/app.css">
+<link rel="stylesheet" href="admin.css">
+<script src="config.js"></script>
+</head>
+<body class="adm locked">
+<header class="top">
+  <a class="brand" href="../"><span class="brand-mark">Ι</span><span><b>Isthmia Archives</b><small>Overview · every archive site</small></span></a>
+  <div class="adm-actions">
+    <span class="muted small" id="dirty"></span>
+    <button class="btn" id="dlBtn">Download features.json</button>
+    <button class="btn primary" id="saveBtn">Save and publish</button>
+  </div>
+</header>
+<main class="adm-main">
+  <p class="adm-intro">Every archive at a glance: what each site shows and which features it has. Switch a feature for one site in its column; new archives start from <b>Defaults</b>, and a site only differs where you change it (marked <span class="ovdot"></span>). Names, records, pins and viewer details are edited in each site’s own editor. This page loads settings only, not records or images.</p>
+  <div class="adm-scroll"><table class="adm-grid" id="grid"></table></div>
+  <section class="adm-assets" id="assets"></section>
+</main>
+<div class="toast" id="toast" hidden></div>
+<div class="modal" id="modal" hidden><div class="modal-card"></div></div>
+<script type="module">
+  import { unlock } from "../js/gate.js";
+  unlock("Isthmia archives overview").then(() => import("./admin.js"));
+</script>
+</body>
+</html>

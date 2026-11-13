@@ -1,0 +1,271 @@
+{
+ "defs": [
+  {
+   "key": "gallery",
+   "group": "Views",
+   "label": "Gallery",
+   "kind": "bool",
+   "options": null,
+   "help": "The main grid of records."
+  },
+  {
+   "key": "boxes",
+   "group": "Views",
+   "label": "Find areas / boxes",
+   "kind": "bool",
+   "options": null,
+   "help": "Records grouped by area, box or other grouping."
+  },
+  {
+   "key": "table",
+   "group": "Views",
+   "label": "Table",
+   "kind": "bool",
+   "options": null,
+   "help": "Spreadsheet-style list."
+  },
+  {
+   "key": "charts",
+   "group": "Views",
+   "label": "Charts",
+   "kind": "bool",
+   "options": null,
+   "help": "Chart builder and suggested charts."
+  },
+  {
+   "key": "map",
+   "group": "Map",
+   "label": "Map",
+   "kind": "select",
+   "options": [
+    [
+     "off",
+     "Off"
+    ],
+    [
+     "tab",
+     "Tab in find areas"
+    ],
+    [
+     "view",
+     "Own view"
+    ]
+   ],
+   "help": "Area pins (shared with every archive) or, for archives with coordinates, one point per record."
+  },
+  {
+   "key": "sitePhoto",
+   "group": "Map",
+   "label": "Site photo",
+   "kind": "bool",
+   "options": null,
+   "help": "Map | Site photo buttons on the area map (the excavation orthomosaic)."
+  },
+  {
+   "key": "background",
+   "group": "Viewer",
+   "label": "Viewer background",
+   "kind": "select",
+   "options": [
+    [
+     "light",
+     "Light"
+    ],
+    [
+     "dark",
+     "Dark"
+    ]
+   ],
+   "help": "Starting background of the full-screen viewer. Each archive's editor can fine-tune it."
+  },
+  {
+   "key": "cardPair",
+   "group": "Viewer",
+   "label": "Image pairs on cards",
+   "kind": "bool",
+   "options": null,
+   "help": "Show both images (e.g. obverse and reverse) side by side on cards."
+  },
+  {
+   "key": "scaleBar",
+   "group": "Viewer",
+   "label": "Scale bar and actual size",
+   "kind": "bool",
+   "options": null,
+   "help": "Needs a size column (viewer.scale in site.json)."
+  },
+  {
+   "key": "combined",
+   "group": "Combined site and publishing",
+   "label": "In the combined site",
+   "kind": "bool",
+   "options": null,
+   "help": "Include this archive's records in the combined Isthmia site."
+  },
+  {
+   "key": "editor",
+   "group": "Combined site and publishing",
+   "label": "Editor page",
+   "kind": "bool",
+   "options": null,
+   "help": "The site's editor (data, names, pins, viewer). Locked: opens only with the GitHub key."
+  }
+ ],
+ "template": {
+  "gallery": true,
+  "boxes": true,
+  "table": true,
+  "charts": true,
+  "map": "tab",
+  "sitePhoto": true,
+  "background": "light",
+  "cardPair": false,
+  "scaleBar": true,
+  "combined": true,
+  "editor": true
+ },
+ "sites": {
+  "gregory": {
+   "map": "view",
+   "background": "dark"
+  },
+  "clement": {
+   "cardPair": true
+  },
+  "isthmia": {
+   "map": "view",
+   "cardPair": true
+  }
+ },
+ "list": [
+  {
+   "key": "gregory",
+   "title": "Gregory Archive",
+   "mark": "Γ",
+   "accent": "#9a4f24",
+   "theme": {
+    "accent": "#9a4f24",
+    "accentInk": "#7a3c18",
+    "accentSoft": "#f3e6dc"
+   },
+   "url": "https://tregodan-msu.github.io/gregoryarchive/",
+   "noun": "images",
+   "count": 31727,
+   "hub": false,
+   "na": {
+    "sitePhoto": "no area map (point map only)",
+    "cardPair": "one image per record",
+    "scaleBar": "no size column"
+   },
+   "names": {},
+   "views": [
+    "gallery",
+    "boxes",
+    "table",
+    "map",
+    "charts"
+   ],
+   "group": "Slide Boxes"
+  },
+  {
+   "key": "clement",
+   "title": "Clement Coin Catalog",
+   "mark": "Κ",
+   "accent": "#2f6b64",
+   "theme": {
+    "accent": "#2f6b64",
+    "accentInk": "#214f4a",
+    "accentSoft": "#dcebe8"
+   },
+   "url": "https://tregodan-msu.github.io/clementcoins/",
+   "noun": "coins",
+   "count": 631,
+   "hub": false,
+   "na": {},
+   "names": {},
+   "views": [
+    "gallery",
+    "boxes",
+    "table",
+    "charts"
+   ],
+   "group": "Find Areas"
+  },
+  {
+   "key": "isthmia",
+   "title": "Isthmia Archives",
+   "mark": "Ι",
+   "accent": "#3d5a80",
+   "theme": {
+    "accent": "#3d5a80",
+    "accentInk": "#2c4563",
+    "accentSoft": "#e1e8f0"
+   },
+   "url": "https://tregodan-msu.github.io/isthmia-site/",
+   "noun": "records",
+   "count": 5815,
+   "hub": true,
+   "na": {
+    "combined": "is the combined site",
+    "editor": "edited from its sources"
+   },
+   "names": {},
+   "views": [
+    "gallery",
+    "map",
+    "boxes",
+    "table",
+    "charts"
+   ],
+   "group": "Areas"
+  }
+ ],
+ "assets": {
+  "areas": 19,
+  "places": 5,
+  "areaNames": [
+   "East Field",
+   "East Temenos",
+   "Fortress",
+   "Greek Pool",
+   "Gully Bastion",
+   "Hexamilion",
+   "North Drain",
+   "Northeast Gate",
+   "Northwest Area",
+   "Palaimonion",
+   "Rachi",
+   "Roman Bath",
+   "South Gate",
+   "Stadium",
+   "Temenos",
+   "Temple of Poseidon",
+   "Theater",
+   "Tower #",
+   "West Cemetery"
+  ],
+  "placed": [
+   "East Field",
+   "Greek Pool",
+   "Roman Bath",
+   "Temple of Poseidon",
+   "Theater"
+  ],
+  "photo": {
+   "file": "site-photo.jpg",
+   "label": "Site photo",
+   "bounds": [
+    [
+     37.914736,
+     22.991693
+    ],
+    [
+     37.918006,
+     22.996319
+    ]
+   ],
+   "home": "isthmia",
+   "url": "site-photo.jpg"
+  }
+ }
+}
