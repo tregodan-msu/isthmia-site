@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>New site — Isthmia Archives</title>
+<link rel="stylesheet" href="../../css/app.css">
+<link rel="stylesheet" href="../admin.css">
+<script src="../config.js"></script>
+</head>
+<body class="adm locked">
+<header class="top">
+  <a class="brand" href="../"><span class="brand-mark">Ι</span><span><b>Isthmia Archives</b><small>New collection</small></span></a>
+  <div class="adm-actions"><a class="btn" href="../">← Overview</a></div>
+</header>
+<main class="adm-main ns">
+  <p class="adm-intro">Start a new collection from its photos, or from a table of them. A collection has its own records, fields and editor and is shown inside Isthmia Archives under its own Type; it needs no public repo. Each image becomes one record (ID = file name without the extension);
+    with a table (CSV or Excel, uploaded or from a link) the records also carry its columns and the site is set up from them;
+    without one, titles and other data can be typed in the editor or merged from a CSV later. Creating the site commits its settings to the private repo;
+    the steps after that (AWS, the public repo) are listed once it is made. The full guide is <code>NEW_SITE.md</code> in the repo.</p>
+
+  <form id="f" class="ns-form" autocomplete="off">
+    <label>Site name <input name="title" required placeholder="Isthmia Inventory Cards"></label>
+    <label>Short name <small>folder and editor address, lower case</small><input name="key" required pattern="[a-z0-9][a-z0-9\-]*" placeholder="inventory"></label>
+    <label>S3 bucket with the full-size images <small>same AWS account, images at the top of the bucket</small><input name="bucket" required pattern="[a-z0-9][a-z0-9.\-]{1,61}[a-z0-9]" placeholder="inventorycards"></label>
+    <label>Public repo <small>leave empty: a collection inside Isthmia Archives (the usual case). Fill in only for a separate public site</small><input name="repo" pattern="[A-Za-z0-9._\-]+" placeholder="(none: collection in Isthmia Archives)"></label>
+    <div class="ns-row">
+      <label>One record is a… <input name="one" required value="image" placeholder="card"></label>
+      <label>Many are… <input name="many" required value="images" placeholder="cards"></label>
+    </div>
+    <div class="ns-row">
+      <label>Logo letter <input name="mark" maxlength="2" placeholder="Ι"></label>
+      <label>Colour <input name="accent" type="color" value="#5a4a8a"></label>
+      <label>ID prefix <small>for records added in the editor</small><input name="idPrefix" maxlength="6" placeholder="IC"></label>
+    </div>
+    <label>Contact email <small>shown on the Info pages</small><input name="contact" type="email" value="freyjona@msu.edu"></label>
+    <label>Line under the title <input name="sub" placeholder="Isthmia Excavations · Inventory Cards"></label>
+    <label>Description <small>for search engines</small><input name="description" placeholder="Browse the inventory cards of the UCLA/OSU/MSU excavations at Isthmia."></label>
+    <fieldset class="ns-table">
+      <legend>Records from a table <small>(optional)</small></legend>
+      <p class="muted small">A CSV or Excel file with one row per image (a column with the image file names; the other columns become the records' fields).
+        Upload it or paste a link: a direct link to a CSV/XLSX, a Dropbox or GitHub link, or a Google Sheet published to the web as CSV.
+        Without a table the site starts with just its photos.</p>
+      <div class="ns-row">
+        <label>Upload <input type="file" id="tfile" accept=".csv,.tsv,.txt,.xlsx"></label>
+        <label>…or a link <input type="url" id="turl" placeholder="https://…"></label>
+      </div>
+      <div class="ns-row">
+        <label>Excel tab <small>name or number; blank = first</small><input id="tsheet" placeholder="first tab"></label>
+        <div class="ns-actions"><button type="button" class="btn small" id="tload">Load the link</button> <button type="button" class="btn small" id="tclear" hidden>Remove table</button></div>
+      </div>
+      <p class="small" id="tsum"></p>
+      <details id="tcols" hidden>
+        <summary>Columns <small>(found automatically; change if wrong)</small></summary>
+        <div class="ns-row">
+          <label>Image file names <select id="c-file"></select></label>
+          <label>ID <select id="c-id"></select></label>
+        </div>
+        <div class="ns-row">
+          <label>Title <select id="c-title"></select></label>
+          <label>Groups into boxes <select id="c-group"></select></label>
+        </div>
+      </details>
+    </fieldset>
+    <p class="ns-preview" id="preview"></p>
+    <div class="ns-actions"><button class="btn primary" id="go">Create site</button><span class="muted small" id="msg"></span></div>
+  </form>
+
+  <section id="done" class="ns-done" hidden></section>
+</main>
+<div class="toast" id="toast" hidden></div>
+<script type="module">
+  import { unlock } from "../../js/gate.js";
+  unlock("New archive site").then(() => import("./new.js"));
+</script>
+</body>
+</html>

@@ -1,0 +1,439 @@
+{
+ "defs": [
+  {
+   "key": "gallery",
+   "group": "Views",
+   "label": "Gallery",
+   "kind": "bool",
+   "options": null,
+   "help": "The main grid of records."
+  },
+  {
+   "key": "boxes",
+   "group": "Views",
+   "label": "Find areas / boxes",
+   "kind": "bool",
+   "options": null,
+   "help": "Records grouped by area, box or other grouping."
+  },
+  {
+   "key": "table",
+   "group": "Views",
+   "label": "Table",
+   "kind": "bool",
+   "options": null,
+   "help": "Spreadsheet-style list."
+  },
+  {
+   "key": "charts",
+   "group": "Views",
+   "label": "Charts",
+   "kind": "bool",
+   "options": null,
+   "help": "Chart builder and suggested charts."
+  },
+  {
+   "key": "map",
+   "group": "Map",
+   "label": "Map",
+   "kind": "select",
+   "options": [
+    [
+     "off",
+     "Off"
+    ],
+    [
+     "tab",
+     "Tab in find areas"
+    ],
+    [
+     "view",
+     "Own view"
+    ]
+   ],
+   "help": "Area pins (shared with every archive) or, for archives with coordinates, one point per record."
+  },
+  {
+   "key": "sitePhoto",
+   "group": "Map",
+   "label": "Site photo",
+   "kind": "bool",
+   "options": null,
+   "help": "Map | Site photo buttons on the area map (the excavation orthomosaic)."
+  },
+  {
+   "key": "background",
+   "group": "Viewer",
+   "label": "Viewer background",
+   "kind": "select",
+   "options": [
+    [
+     "light",
+     "Light"
+    ],
+    [
+     "dark",
+     "Dark"
+    ]
+   ],
+   "help": "Starting background of the full-screen viewer. Each archive's editor can fine-tune it."
+  },
+  {
+   "key": "cardPair",
+   "group": "Viewer",
+   "label": "Image pairs on cards",
+   "kind": "bool",
+   "options": null,
+   "help": "Show both images (e.g. obverse and reverse) side by side on cards."
+  },
+  {
+   "key": "scaleBar",
+   "group": "Viewer",
+   "label": "Scale bar and actual size",
+   "kind": "bool",
+   "options": null,
+   "help": "Needs a size column (viewer.scale in site.json)."
+  },
+  {
+   "key": "pages",
+   "group": "Views",
+   "label": "Info pages",
+   "kind": "bool",
+   "options": null,
+   "help": "An Info tab with pages about the archive and the project (About, The Isthmia archives, Methodology, Takedown policy). New sites start with placeholder text from core/pages/; edit it in each site's editor: Tools → Info pages."
+  },
+  {
+   "key": "combined",
+   "group": "Combined site and publishing",
+   "label": "In the combined site",
+   "kind": "bool",
+   "options": null,
+   "help": "Include this archive's records in the combined Isthmia site."
+  },
+  {
+   "key": "editor",
+   "group": "Combined site and publishing",
+   "label": "Editor",
+   "kind": "bool",
+   "options": null,
+   "help": "The archive's editor (records, names, pins, viewer), here on the admin pages under Editor. Opens only with the GitHub key; the public site has no editing."
+  }
+ ],
+ "template": {
+  "gallery": true,
+  "boxes": true,
+  "table": true,
+  "charts": true,
+  "map": "tab",
+  "sitePhoto": true,
+  "background": "light",
+  "cardPair": false,
+  "scaleBar": true,
+  "pages": true,
+  "combined": true,
+  "editor": true
+ },
+ "sites": {
+  "gregory": {
+   "map": "view",
+   "background": "dark"
+  },
+  "clement": {
+   "cardPair": true
+  },
+  "isthmia": {
+   "map": "view",
+   "cardPair": true
+  },
+  "inventory": {
+   "boxes": false,
+   "charts": false,
+   "map": false,
+   "sitePhoto": false,
+   "scaleBar": false
+  },
+  "colorslides": {
+   "boxes": true,
+   "charts": true,
+   "map": false,
+   "sitePhoto": false,
+   "scaleBar": false
+  }
+ },
+ "list": [
+  {
+   "key": "gregory",
+   "title": "Gregory Archive",
+   "mark": "Γ",
+   "accent": "#9a4f24",
+   "theme": {
+    "accent": "#9a4f24",
+    "accentInk": "#7a3c18",
+    "accentSoft": "#f3e6dc"
+   },
+   "url": "https://tregodan-msu.github.io/gregoryarchive/",
+   "collection": false,
+   "noun": "images",
+   "count": 31289,
+   "hub": false,
+   "na": {
+    "sitePhoto": "no area map (point map only)",
+    "cardPair": "one image per record",
+    "scaleBar": "no size column"
+   },
+   "pages": {
+    "tab": "About",
+    "footer": "Images are shared under a Creative Commons Attribution-NonCommercial 4.0 International License (CC BY-NC 4.0).",
+    "list": [
+     {
+      "slug": "about",
+      "title": "About the archive",
+      "description": "The history of the Gregory Archive, Timothy E. Gregory, and how the images may be used."
+     },
+     {
+      "slug": "methodology",
+      "title": "Methodology",
+      "description": "How the Gregory Archive slides were organized, digitized and described."
+     },
+     {
+      "slug": "takedown-policy",
+      "title": "Takedown policy",
+      "description": "How to ask the Gregory Archive to review or remove an image."
+     }
+    ]
+   },
+   "editor": "edit/gregory/",
+   "names": {},
+   "views": [
+    "gallery",
+    "boxes",
+    "table",
+    "map",
+    "charts"
+   ],
+   "group": "Slide Boxes"
+  },
+  {
+   "key": "clement",
+   "title": "Clement Coin Catalog",
+   "mark": "Κ",
+   "accent": "#2f6b64",
+   "theme": {
+    "accent": "#2f6b64",
+    "accentInk": "#214f4a",
+    "accentSoft": "#dcebe8"
+   },
+   "url": "https://tregodan-msu.github.io/clementcoins/",
+   "collection": false,
+   "noun": "coins",
+   "count": 631,
+   "hub": false,
+   "na": {},
+   "pages": {
+    "tab": "Info",
+    "footer": "All images in the Isthmia Coin Collection are shared under a Creative Commons Attribution-NonCommercial 4.0 International License (CC BY-NC 4.0).",
+    "list": [
+     {
+      "slug": "about",
+      "title": "About the catalog",
+      "description": "The Paul A. Clement Catalog of Coins from the excavations at Isthmia, Paul A. Clement, and how the images may be used."
+     },
+     {
+      "slug": "methodology",
+      "title": "Methodology",
+      "description": "How the Isthmia coins were photographed, described and checked."
+     },
+     {
+      "slug": "project",
+      "title": "The Isthmia archives",
+      "description": "The project that brings the records of the excavations at Isthmia together, and its other archives."
+     },
+     {
+      "slug": "takedown-policy",
+      "title": "Takedown policy",
+      "description": "How to ask the Clement Coin Catalog to review or remove an image."
+     }
+    ]
+   },
+   "editor": "edit/clement/",
+   "names": {},
+   "views": [
+    "gallery",
+    "boxes",
+    "table",
+    "charts"
+   ],
+   "group": "Find Areas"
+  },
+  {
+   "key": "isthmia",
+   "title": "Isthmia Archives",
+   "mark": "Ι",
+   "accent": "#3d5a80",
+   "theme": {
+    "accent": "#3d5a80",
+    "accentInk": "#2c4563",
+    "accentSoft": "#e1e8f0"
+   },
+   "url": "https://tregodan-msu.github.io/isthmia-site/",
+   "collection": false,
+   "noun": "records",
+   "count": 8647,
+   "hub": true,
+   "na": {
+    "combined": "is the combined site",
+    "editor": "edited from its sources"
+   },
+   "pages": {
+    "tab": "Info",
+    "footer": "Images are shared under a Creative Commons Attribution-NonCommercial 4.0 International License (CC BY-NC 4.0).",
+    "list": [
+     {
+      "slug": "about",
+      "title": "About the archive",
+      "description": "What Isthmia Archives holds, where it comes from and how it may be used."
+     },
+     {
+      "slug": "project",
+      "title": "The Isthmia archives",
+      "description": "The project that brings the records of the excavations at Isthmia together, and its other archives."
+     },
+     {
+      "slug": "methodology",
+      "title": "Methodology",
+      "description": "How the records in Isthmia Archives were digitized and described."
+     },
+     {
+      "slug": "takedown-policy",
+      "title": "Takedown policy",
+      "description": "How to ask Isthmia Archives to review or remove an image."
+     }
+    ]
+   },
+   "editor": "",
+   "names": {},
+   "views": [
+    "gallery",
+    "map",
+    "boxes",
+    "table",
+    "charts"
+   ],
+   "group": "Areas"
+  },
+  {
+   "key": "inventory",
+   "title": "Isthmia Inventory Cards",
+   "mark": "Ι",
+   "accent": "#5a4a8a",
+   "theme": {
+    "accent": "#5a4a8a",
+    "accentInk": "#43366b",
+    "accentSoft": "#e6e1f1"
+   },
+   "url": "https://tregodan-msu.github.io/isthmia-site/",
+   "collection": true,
+   "noun": "cards",
+   "count": 0,
+   "hub": false,
+   "na": {
+    "boxes": "no grouping column",
+    "map": "no area column or coordinates",
+    "sitePhoto": "no area map",
+    "cardPair": "one image per record",
+    "scaleBar": "no size column",
+    "pages": "a collection: uses the Info pages of the site it is in"
+   },
+   "pages": null,
+   "editor": "edit/inventory/",
+   "names": {},
+   "views": [
+    "gallery",
+    "table"
+   ],
+   "group": ""
+  },
+  {
+   "key": "colorslides",
+   "title": "Isthmia Color Positives",
+   "mark": "I",
+   "accent": "#2f6f8f",
+   "theme": {
+    "accent": "#2f6f8f",
+    "accentInk": "#245570",
+    "accentSoft": "#e0edf3"
+   },
+   "url": "https://tregodan-msu.github.io/isthmia-site/",
+   "collection": true,
+   "noun": "slides",
+   "count": 2832,
+   "hub": false,
+   "na": {
+    "map": "no area column or coordinates",
+    "sitePhoto": "no area map",
+    "cardPair": "one image per record",
+    "scaleBar": "no size column",
+    "pages": "a collection: uses the Info pages of the site it is in"
+   },
+   "pages": null,
+   "editor": "edit/colorslides/",
+   "names": {},
+   "views": [
+    "gallery",
+    "boxes",
+    "table",
+    "charts"
+   ],
+   "group": "Slide Boxes"
+  }
+ ],
+ "assets": {
+  "areas": 19,
+  "places": 6,
+  "areaNames": [
+   "East Field",
+   "East Temenos",
+   "Fortress",
+   "Greek Pool",
+   "Gully Bastion",
+   "Hexamilion",
+   "North Drain",
+   "Northeast Gate",
+   "Northwest Area",
+   "Palaimonion",
+   "Rachi",
+   "Roman Bath",
+   "South Gate",
+   "Stadium",
+   "Temenos",
+   "Temple of Poseidon",
+   "Theater",
+   "Tower #",
+   "West Cemetery"
+  ],
+  "placed": [
+   "East Field",
+   "Greek Pool",
+   "North Drain",
+   "Roman Bath",
+   "Temple of Poseidon",
+   "Theater"
+  ],
+  "photo": {
+   "file": "site-photo.jpg",
+   "label": "Site photo",
+   "bounds": [
+    [
+     37.914736,
+     22.991693
+    ],
+    [
+     37.918006,
+     22.996319
+    ]
+   ],
+   "home": "isthmia",
+   "url": "site-photo.jpg"
+  }
+ }
+}

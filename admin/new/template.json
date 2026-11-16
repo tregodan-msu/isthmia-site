@@ -1,0 +1,191 @@
+{
+ "siteJson": {
+  "key": "@@key@@",
+  "siteTitle": "@@title@@",
+  "pageTitle": "@@title@@ — Isthmia Excavations",
+  "description": "@@description@@",
+  "brand": {
+   "mark": "@@mark@@",
+   "sub": "@@sub@@"
+  },
+  "theme": {
+   "accent": "@@accent@@",
+   "accentInk": "@@accentInk@@",
+   "accentSoft": "@@accentSoft@@"
+  },
+  "contact": "@@contact@@",
+  "searchPlaceholder": "Search IDs, titles…",
+  "exportName": "@@exportName@@",
+  "noun": {
+   "one": "@@one@@",
+   "many": "@@many@@"
+  },
+  "dataUrl": "data/archive.json",
+  "imageBase": "https://@@bucket@@.s3.amazonaws.com/",
+  "thumbBase": "https://@@bucket@@.s3.amazonaws.com/optimized/400/",
+  "mediumBase": "https://@@bucket@@.s3.amazonaws.com/optimized/1600/",
+  "imageFormats": [
+   "avif",
+   "webp"
+  ],
+  "hideOriginals": true,
+  "thumbsReady": false,
+  "permalinkBase": "https://@@owner@@.github.io/@@repo@@/",
+  "permalinkPath": "@@path@@",
+  "uploads": {
+   "signer": ""
+  },
+  "fields": {
+   "id": "ID",
+   "title": "Title",
+   "titleFallback": [
+    "ID"
+   ],
+   "caption": [
+    "ID"
+   ],
+   "boardCaption": [
+    "ID"
+   ],
+   "location": "",
+   "geo": "",
+   "images": [
+    {
+     "field": "File name",
+     "urlField": "Image_URL"
+    }
+   ],
+   "date": null,
+   "created": null
+  },
+  "labels": {
+   "Image_URL": "Full-size image"
+  },
+  "views": [
+   "gallery",
+   "table"
+  ],
+  "groupable": [],
+  "keyFields": [
+   "ID",
+   "Title"
+  ],
+  "facetFields": [],
+  "linkFields": [],
+  "sorts": [
+   [
+    "f:ID",
+    "ID"
+   ],
+   [
+    "title",
+    "Title A–Z"
+   ]
+  ],
+  "table": {
+   "cols": [
+    "ID",
+    "Title",
+    "URI"
+   ],
+   "widths": {
+    "ID": 140,
+    "Title": 300
+   }
+  },
+  "editor": {
+   "readOnly": [],
+   "defaultCols": [
+    "ID",
+    "Title",
+    "File name",
+    "Image_URL"
+   ],
+   "widths": {
+    "Title": 260,
+    "File name": 200,
+    "Image_URL": 320
+   },
+   "categorical": [],
+   "textarea": [
+    "Title"
+   ],
+   "issues": [
+    "missing:Title",
+    "no-image"
+   ],
+   "upload": {
+    "fields": [],
+    "defaults": {}
+   }
+  },
+  "hub": {
+   "type": "@@hubType@@",
+   "area": "",
+   "trench": "",
+   "people": "",
+   "year": "",
+   "search": [
+    "Title"
+   ],
+   "only": "",
+   "cut": false
+  },
+  "build": {
+   "idPrefix": "@@idPrefix@@"
+  },
+  "publish": {
+   "repo": "@@owner@@/@@repo@@",
+   "cname": "",
+   "editor": true
+  }
+ },
+ "features": {
+  "boxes": false,
+  "charts": false,
+  "map": false,
+  "sitePhoto": false,
+  "scaleBar": false
+ },
+ "policy": {
+  "Version": "2012-10-17",
+  "Statement": [
+   {
+    "Sid": "PublicReadImages",
+    "Effect": "Allow",
+    "Principal": "*",
+    "Action": "s3:GetObject",
+    "Resource": "arn:aws:s3:::@@bucket@@/*"
+   }
+  ]
+ },
+ "cors": [
+  {
+   "AllowedOrigins": [
+    "https://@@owner@@.github.io",
+    "http://localhost:8000"
+   ],
+   "AllowedMethods": [
+    "GET",
+    "PUT",
+    "HEAD"
+   ],
+   "AllowedHeaders": [
+    "*"
+   ],
+   "ExposeHeaders": [
+    "ETag"
+   ],
+   "MaxAgeSeconds": 3600
+  }
+ ],
+ "records": "ID,Title,File name,Image_URL\n",
+ "account": "tregodan-msu",
+ "sites": [
+  "gregory",
+  "clement",
+  "isthmia",
+  "inventory",
+  "colorslides"
+ ]
+}
